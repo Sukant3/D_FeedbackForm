@@ -1,0 +1,65 @@
+
+# ============================
+# Python
+# ============================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.pdb
+
+# ============================
+# Virtual Environment
+# ============================
+venv/
+env/
+ENV/
+.venv/
+
+# ============================
+# Django
+# ============================
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# Don’t ignore static/ if collecting manually
+static/
+
+# Django Secret Key / Environment Files
+.env
+.env.local
+*.env
+
+# ============================
+# Migrations (Optional)
+# Uncomment if you want to ignore migrations
+# ============================
+# */migrations/*
+# !*/migrations/__init__.py
+
+# ============================
+# IDE / Editor
+# ============================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ============================
+# OS Files
+# ============================
+.DS_Store
+Thumbs.db
+
+# ============================
+# Backup Files
+# ============================
+*.bak
+*.swp
+*.tmp
