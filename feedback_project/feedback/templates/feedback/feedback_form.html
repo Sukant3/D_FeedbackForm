@@ -1,0 +1,66 @@
+<!-- <html>
+
+<head>
+    <title>
+        FeedBackForm
+    </title>
+</head>
+
+<body>
+    <h3>
+        Submit Your Feedback
+    </h3>
+
+    <Form action="" method="POST">
+        {% csrf_token %}
+        <label for="name"></label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required></br>
+        <label for="email"></label>
+        <input type="email" name="email" placeholder="Your Email" required></br>
+        <label for="message"></label>
+        <textarea rows="30" cols="50" required></textarea></br>
+
+        <button type="submit">Submit</button>
+
+
+    </Form>
+
+
+
+    {% if success %}
+    <p>Feedback submitted successfully</p>
+    {% endif %}
+
+</body>
+
+</html> -->
+
+
+<html>
+<head>
+    <title>FeedBackForm</title>
+</head>
+
+<body>
+    <h3>Submit Your Feedback</h3>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required><br>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" cols="40" placeholder="Your Message" required></textarea><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if success %}
+        <p>Feedback submitted successfully</p>
+    {% endif %}
+</body>
+</html>
