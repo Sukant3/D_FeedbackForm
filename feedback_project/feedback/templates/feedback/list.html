@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">All Feedbacks</h2>
+
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for fb in data %}
+                <tr>
+                    <td>{{ fb.id }}</td>
+                    <td>{{ fb.name }}</td>
+                    <td>{{ fb.email }}</td>
+                    <td>{{ fb.message }}</td>
+
+                    <td>
+                        <a href="{% url 'feedback_edit' fb.id %}" class="btn btn-sm btn-primary"> Edit </a>
+                        
+                        <form id="delete-form-{{fb.id}}" action="{% url 'feedback_delete' fb.id %}" method="POST"
+                            style="display:none;">
+                            {% csrf_token %}
+                        </form>
+
+
+                        <a href="#" class="btn btn-sm btn-danger"
+                            onclick="if(confirm('Are you sure?')) { document.getElementById('delete-form-{{fb.id}}').submit(); } return false;">
+                            Delete
+                        </a>
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+
+</html>

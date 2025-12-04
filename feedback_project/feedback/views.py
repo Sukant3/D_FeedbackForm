@@ -15,7 +15,7 @@ def feedback_view(request):
             message=message
         )
 
-        # Redirect so refreshing page does NOT re-submit form
+        #  page does NOT re-submit form
         return redirect('/feedback/?success=true')
 
     
@@ -23,7 +23,31 @@ def feedback_view(request):
 
     return render(request, 'feedback/feedback_form.html', {"success": success})
 
+def feedback_list(request):
+    data=Feedback.objects.all().order_by('id')
+    return render(request,'feedback/list.html',{"data":data})
 
+
+def feedback_edit(request,id):
+    fb=Feedback.objects.get(id=id)
+
+    if request.method=="POST":
+        fb.name=request.POST.get('name')
+        fb.email=request.POST.get('email')
+        fb.message=request.POST.get('message')
+        fb.save()
+
+        return redirect('/list/')
+    return render(request,'feedback/edit.html',{"fb":fb})
+
+def feedback_delete(request,id):
+    fb=Feedback.objects.get(id=id)
+
+    if request.method=="POST":
+        fb.delete()
+        return redirect('/list/')
+
+    # return render(request,'feedback/delete_confirm.html',{'fb':fb})
 
 # if we use form directly. create form.py then create view 
 
