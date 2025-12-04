@@ -5,5 +5,8 @@ from feedback import views
 
 urlpatterns = [
     # path('', feedback_view, name='feedback'),
-    path('feedback/', views.feedback_view, name='feedback'), 
+    path('feedback/', views.feedback_view, name='feedback'),
+    path('list/',views.feedback_list,name='feeback_list'),
+    path('edit/<int:id>/',views.feedback_edit,name='feedback_edit'),
+    path('delete/<int:id>/',views.feedback_delete,name='feedback_delete') 
 ]
